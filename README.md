@@ -289,21 +289,22 @@ The results of metrics of Isra and other 2 baselines are presented in the table 
 
 We also present figures of the increase of operation-level metrics over the number of models. 
 
-![OTC](./imgs/OTC-Experiment#1.png)
+![OTC](https://raw.githubusercontent.com/israProj/isra/main/imgs/OTC-Experiment%231.png)
 
-![IDC](./imgs/IDC-Experiment#1.png)
+![IDC](https://raw.githubusercontent.com/israProj/isra/main/imgs/IDC-Experiment%231.png)
 
-![ODC](./imgs/ODC-Experiment#1.png)
+![ODC](https://raw.githubusercontent.com/israProj/isra/main/imgs/ODC-Experiment%231.png)
 
-![SEC](./imgs/SEC-Experiment#1.png)
+![SEC](https://raw.githubusercontent.com/israProj/isra/main/imgs/SEC-Experiment%231.png)
 
-![DEC](./imgs/DEC-Experiment#1.png)
+![DEC](https://raw.githubusercontent.com/israProj/isra/main/imgs/DEC-Experiment%231.png)
 
-![SAC](./imgs/SAC-Experiment#1.png)
+![SAC](https://raw.githubusercontent.com/israProj/isra/main/imgs/SAC-Experiment%231.png)
+
 
 The distributions of different operators in Isra and two baselines are shown in the following fig:
 
-![distribution](./imgs/Distribution-Experiment#1.png)
+![distribution]((https://raw.githubusercontent.com/israProj/isra/main/imgs/Distribution-Experiment%231.png))
 
 ### #2. Generate a fixed number of models of multiple sizes `[1-200]`, compared with baselines DeclGen and Randoop-Gen.
 
@@ -330,21 +331,21 @@ The results of metrics of Isra and other 2 baselines are presented in the table 
 
 We also present figures of the increase of operation-level metrics over the number of models. 
 
-![OTC](./imgs/OTC-Experiment#2.png)
+![OTC](https://raw.githubusercontent.com/israProj/isra/main/imgs/OTC-Experiment%232.png)
 
-![IDC](./imgs/IDC-Experiment#2.png)
+![IDC](https://raw.githubusercontent.com/israProj/isra/main/imgs/IDC-Experiment%232.png)
 
-![ODC](./imgs/ODC-Experiment#2.png)
+![ODC](https://raw.githubusercontent.com/israProj/isra/main/imgs/ODC-Experiment%232.png)
 
-![SEC](./imgs/SEC-Experiment#2.png)
+![SEC](https://raw.githubusercontent.com/israProj/isra/main/imgs/SEC-Experiment%232.png)
 
-![DEC](./imgs/DEC-Experiment#2.png)
+![DEC](https://raw.githubusercontent.com/israProj/isra/main/imgs/DEC-Experiment%232.png)
 
-![SAC](./imgs/SAC-Experiment#2.png)
+![SAC](https://raw.githubusercontent.com/israProj/isra/main/imgs/SAC-Experiment%232.png)
 
 The distributions of different operators in Isra and two baselines are shown in the following fig:
 
-![distribution](./imgs/Distribution-Experiment#2.png)
+![distribution](https://raw.githubusercontent.com/israProj/isra/main/imgs/Distribution-Experiment%232.png)
 
 ### #3. Generate a fixed number of models of same sizes, compared with Muffin.
 
@@ -373,7 +374,7 @@ The results of metrics of Isra* and Muffin are presented in the table below:
 
 The distributions of different operators in Isra and Muffin are shown in the following fig:
 
-![distribution](./imgs/Distribution-Experiment#3.png)
+![distribution](https://raw.githubusercontent.com/israProj/isra/main/imgs/Distribution-Experiment%233.png)
 
 ### #4. Generate a fixed number of models of fixed size, with different settings of *pickRate*
 
