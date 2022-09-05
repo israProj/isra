@@ -1,0 +1,2 @@
+error_log = 
+ Gemm op take 3 inputs, 2 given

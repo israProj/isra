@@ -1,0 +1,4 @@
+number= 120
+
+error_log = 
+ Number of output mismatch 2 vs 4 in Split.

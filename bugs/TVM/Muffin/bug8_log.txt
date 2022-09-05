@@ -1,0 +1,31 @@
+number= 97
+
+error_log = 
+ Traceback (most recent call last):
+  [bt] (8) 9   libtvm.dylib                        0x000000013e59aca6 TVMFuncCall + 70
+  [bt] (7) 8   libtvm.dylib                        0x000000013da8e622 std::__1::__function::__func<void tvm::runtime::TypedPackedFunc<tvm::IRModule (tvm::RelayExpr, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void>, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void>)>::AssignTypedLambda<tvm::$_9>(tvm::$_9)::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*), std::__1::allocator<void tvm::runtime::TypedPackedFunc<tvm::IRModule (tvm::RelayExpr, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void>, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void>)>::AssignTypedLambda<tvm::$_9>(tvm::$_9)::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)>, void (tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)>::operator()(tvm::runtime::TVMArgs&&, tvm::runtime::TVMRetValue*&&) + 610
+  [bt] (6) 7   libtvm.dylib                        0x000000013da801a7 tvm::IRModule::FromExpr(tvm::RelayExpr const&, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void> const&, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void> const&) + 999
+  [bt] (5) 6   libtvm.dylib                        0x000000013da7d367 tvm::IRModuleNode::Add(tvm::GlobalVar const&, tvm::BaseFunc const&, bool) + 183
+  [bt] (4) 5   libtvm.dylib                        0x000000013da7ce0f tvm::RunTypeCheck(tvm::IRModule const&, tvm::GlobalVar const&, tvm::relay::Function) + 1103
+  [bt] (3) 4   libtvm.dylib                        0x000000013e3f1150 tvm::relay::InferType(tvm::relay::Function const&, tvm::IRModule const&, tvm::GlobalVar const&) + 544
+  [bt] (2) 3   libtvm.dylib                        0x000000013e3f02a7 tvm::relay::TypeInferencer::Infer(tvm::RelayExpr) + 119
+  [bt] (1) 2   libtvm.dylib                        0x000000013da6da7c tvm::ErrorReporter::RenderErrors(tvm::IRModule const&, bool) + 5708
+  [bt] (0) 1   libtvm.dylib                        0x000000013d87e85f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/src/ir/error.cc", line 132
+TVMError: [1m
+Error(s) have occurred. The program has been annotated with them:
+
+[0m[1mIn `main`: 
+[0m#[version = "0.0.5"]
+fn (%v00_input_object: Tensor[(1, 5, 4, 5), float32]) {
+  %0 = reshape(%v00_input_object, newshape=[-1, 5, 4, 5]);
+  %1 = image.resize(%0, size=[20, 25], method="nearest_neighbor");
+  %2 = reshape(%1, newshape=[-1, 20, 25]);
+  %3 = strided_slice(%2, begin=[0, 0, 0], end=[2147483647, 7, 2147483647], strides=[1, 1, 1]);
+  %4 = reshape(%3, newshape=[0, 0, 0]);
+  %5 = strided_slice(%2, begin=[0, 10, 0], end=[2147483647, 17, 2147483647], strides=[1, 1, 1]);
+  %6 = reshape(%5, newshape=[1, -1, 175]);
+  %7 = (%4, %6);
+  concatenate(%7)[31m relay.concatenate requires all tensors have the same shape on non-concatenating axes; [39m
+}
+

@@ -1,0 +1,48 @@
+error_log = 
+ Traceback (most recent call last):
+  [bt] (8) 9   libtvm.dylib                        0x00000001113e3ca6 TVMFuncCall + 70
+  [bt] (7) 8   libtvm.dylib                        0x00000001108d7622 std::__1::__function::__func<void tvm::runtime::TypedPackedFunc<tvm::IRModule (tvm::RelayExpr, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void>, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void>)>::AssignTypedLambda<tvm::$_9>(tvm::$_9)::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*), std::__1::allocator<void tvm::runtime::TypedPackedFunc<tvm::IRModule (tvm::RelayExpr, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void>, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void>)>::AssignTypedLambda<tvm::$_9>(tvm::$_9)::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)>, void (tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)>::operator()(tvm::runtime::TVMArgs&&, tvm::runtime::TVMRetValue*&&) + 610
+  [bt] (6) 7   libtvm.dylib                        0x00000001108c91a7 tvm::IRModule::FromExpr(tvm::RelayExpr const&, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void> const&, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void> const&) + 999
+  [bt] (5) 6   libtvm.dylib                        0x00000001108c6367 tvm::IRModuleNode::Add(tvm::GlobalVar const&, tvm::BaseFunc const&, bool) + 183
+  [bt] (4) 5   libtvm.dylib                        0x00000001108c5e0f tvm::RunTypeCheck(tvm::IRModule const&, tvm::GlobalVar const&, tvm::relay::Function) + 1103
+  [bt] (3) 4   libtvm.dylib                        0x000000011123a150 tvm::relay::InferType(tvm::relay::Function const&, tvm::IRModule const&, tvm::GlobalVar const&) + 544
+  [bt] (2) 3   libtvm.dylib                        0x00000001112392a7 tvm::relay::TypeInferencer::Infer(tvm::RelayExpr) + 119
+  [bt] (1) 2   libtvm.dylib                        0x00000001108b6a7c tvm::ErrorReporter::RenderErrors(tvm::IRModule const&, bool) + 5708
+  [bt] (0) 1   libtvm.dylib                        0x00000001106c785f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/src/ir/error.cc", line 132
+TVMError: [1m
+Error(s) have occurred. The program has been annotated with them:
+
+[0m[1mIn `main`: 
+[0m#[version = "0.0.5"]
+fn (%node1: Tensor[(1, 5, 3, 2), float32], %node4: Tensor[(2), float32]) {
+  %0 = reshape(%node1, newshape=[-1]);
+  %1 = broadcast_to(%0, meta[relay.attrs.InitOpAttrs][0])[31m Incompatible broadcast type TensorType([30], float32) and TensorType([5], float32); [39m;
+  %2 = nn.prelu(%node1, %1);
+  %3 = nn.relu(%2);
+  %4 = reshape(%3, newshape=[-1]);
+  %5 = exp(%node4);
+  %6 = subtract(1f, %5);
+  %7 = nn.relu(%6);
+  %8 = multiply(-1f, %7);
+  %9 = nn.relu(%node4);
+  %10 = add(%8, %9);
+  %11 = multiply(%10, %10);
+  %12 = sum(%11, axis=[0], keepdims=True);
+  %13 = floor(%12);
+  %14 = reshape(%13, newshape=[-1]);
+  %15 = erf(%node1);
+  %16 = reshape(%15, newshape=[-1]);
+  %17 = abs(%node1);
+  %18 = sum(%17, axis=[3, 2, 1, 0], keepdims=True);
+  %19 = reshape(%18, newshape=[-1]);
+  %20 = nn.relu(%node1);
+  %21 = reshape(%20, newshape=[-1]);
+  %22 = (%4, %14, %16, %19, %21);
+  concatenate(%22, axis=-1)
+}
+/* For debugging purposes the metadata section has been omitted.
+ * If you would like to see the full metadata section you can set the 
+ * option to `True` when invoking `astext`. 
+ */
+

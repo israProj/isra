@@ -1,0 +1,2 @@
+error_log = 
+ index 2 is out of bounds for axis 0 with size 1

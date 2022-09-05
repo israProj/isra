@@ -1,0 +1,327 @@
+{
+	"Identity" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "comment" : "type should not be seq "
+	},
+	"Abs" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Neg" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Reciprocal" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Floor" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Ceil"  :{
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+
+	"Erf" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Sign" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Exp" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Softsign" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Softmax" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axis"],
+		"comment" : "default=-1"
+	},
+	"Sigmoid" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"HardSigmoid" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params": ["alpha", "beta"],
+		"comment" : "default= 0.2, 0.5"
+	},
+	"Relu" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"LeakyRelu" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["alpha"],
+		"comment" : "default= 0.01"
+	},
+
+	"Sin": {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Cos" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+
+	"Flatten" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axis"],
+		"comment" : "default= 1"
+	},
+	"Add" : {
+		"in_degree" : [2],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Sub" : {
+		"in_degree" : [2],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Mul" : {
+		"in_degree" : [2],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	}, 
+	"Div" : {
+		"in_degree" : [2],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+
+	"Max" : {
+		"in_degree" : [1, 2, 3, 4, 5],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Min" : {
+		"in_degree" : [1, 2, 3, 4, 5],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Mean" : {
+		"in_degree" : [1, 2, 3, 4, 5],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"MaxPool" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["auto_pad", "ceil_mode", "dilations", "kernel_shape", "pads", "storage_order", "strides"]
+		, "comment" : "out_degree : [1, 2]; default=notset, 0, list of 1 each axis, list of int required,  defaults to 0 along start and end of each spatial axis, 0, defaults to 1 along each spatial axis"
+	},
+	"AveragePool" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["auto_pad", "ceil_mode", "count_include_pad", "kernel_shape", "pads", "strides"]
+		, "comments" : "no dilations, count_include_pad default is 0, other param default same as maxpool"
+	},
+	"LpPool" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["auto_pad", "kernel_shape", "p", "pads", "strides"],
+		"comment" : "p default is 2, other param default same as maxpool"
+	},
+	"Conv" : {
+		"in_degree" : [2, 3],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["auto_pad", "dilations", "group", "kernel_shape", "pads", "strides"],
+		"comment" : "group default is 1, kernal shape default inferred from input W"
+	},
+	"MatMul" : {
+		"in_degree" : [2],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Gemm" : {
+		"in_degree" : [2,3],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["alpha", "beta", "transA", "transB"],
+		"comment" : "default= 1, 1, 0, 0"
+	},
+	"Concat" : {
+		"in_degree" : [1, 2, 3, 4, 5],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axis"],
+		"comment" : "required"
+	},
+
+	"SpaceToDepth" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["blocksize"]
+		, "comment" : "required"
+	},
+	"ReduceMax" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axes", "keepdims"],
+		"comment" : "axes default is to reduce over all the dimensions of the input tensor, keepdims default 1"
+	},
+	"ReduceMean" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axes", "keepdims"],
+		"comment" : "same as above"
+	},
+	"ReduceMin" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axes", "keepdims"],
+		"comment" : "same as above"
+	},
+	"ReduceProd" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axes", "keepdims"],
+		"comment" : "same as above"
+	},
+	"ReduceSumSquare" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axes", "keepdims"],
+		"comment" : "same as above"
+	},
+	"ReduceL1" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axes", "keepdims"],
+		"comment" : "same as above"
+	},
+	"ReduceL2" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axes", "keepdims"],
+		"comment" : "same as above"
+	},
+
+    "Pad" : {
+        "in_degree" : [2, 3, 4],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["mode"]
+        , "comment" :"to check"
+    }, 
+	"BatchNormalization" : {
+        "in_degree" : [5],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["epsilon", "momentum", "training_mode"]
+    },
+	"Expand" : {
+		"in_degree" : [2],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+
+	"Sum" : {
+		"in_degree" : [1, 2, 3, 4, 5],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Round" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"ReduceLogSumExp" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axes", "keepdims"],
+		"comment" : "same as above"
+	},
+	"Sqrt" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"PRelu" : {
+		"in_degree" : [2],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	"Selu" : {
+		"in_degree" : [1],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["alpha", "gamma"],
+		"comment" : "default= 1.67326, 1.0507"
+	},
+
+	"Gather" : {
+        "in_degree" : [2],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["axis"]
+    },
+	"Reshape" : {
+        "in_degree" : [2],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["allowzero"]
+    },
+	"Slice" : {
+        "in_degree" : [3, 4, 5],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "Split" : {
+        "in_degree" : [1, 2],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["axis"]
+    },
+    "Tile" : {
+        "in_degree" : [2],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "Transpose" : {
+        "in_degree" : [1],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["perm"]
+    },
+    "Unsqueeze" : {
+        "in_degree" : [2],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "Elu" : { 
+        "in_degree" : [1],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["alpha"]
+    },
+    "Tanh" : {
+        "in_degree" : [1],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "ThresholdedRelu" : {
+        "in_degree" : [1],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["alpha"]
+    },
+    "ReduceSum" : {
+        "in_degree" : [1, 2],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["keepdims", "noop_with_empty_axes"]
+    },
+    "GlobalAveragePool" :{
+        "in_degree" : [1],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "GlobalMaxPool" : {
+        "in_degree" : [1],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+
+	"Softplus" : {
+        "in_degree" : [1],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "Resize" : {
+        "in_degree" : [1, 2, 3, 4],
+        "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        , "params" : ["antialias", "axes", "cubic_coeff_a", "coordinate_transformation_mode", 
+        "mode", "exclude_outside", "extrapolation_value", "keep_aspect_ratio_policy","nearest_mode"]
+        , "comment" : "to check"
+    },
+	"Compress" : {
+		"in_degree" : [2],
+		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		, "params" : ["axis"]
+	}
+}
+

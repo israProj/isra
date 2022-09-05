@@ -1,0 +1,4 @@
+number= 26
+
+error_log = 
+ Don't know how to handle type <class 'tvm.relay.expr.TupleWrapper'>

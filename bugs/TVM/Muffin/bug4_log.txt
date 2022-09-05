@@ -1,0 +1,58 @@
+number= 9
+
+error_log = 
+ Traceback (most recent call last):
+  [bt] (8) 9   libtvm.dylib                        0x000000013e59aca6 TVMFuncCall + 70
+  [bt] (7) 8   libtvm.dylib                        0x000000013da8e622 std::__1::__function::__func<void tvm::runtime::TypedPackedFunc<tvm::IRModule (tvm::RelayExpr, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void>, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void>)>::AssignTypedLambda<tvm::$_9>(tvm::$_9)::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*), std::__1::allocator<void tvm::runtime::TypedPackedFunc<tvm::IRModule (tvm::RelayExpr, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void>, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void>)>::AssignTypedLambda<tvm::$_9>(tvm::$_9)::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)>, void (tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)>::operator()(tvm::runtime::TVMArgs&&, tvm::runtime::TVMRetValue*&&) + 610
+  [bt] (6) 7   libtvm.dylib                        0x000000013da801a7 tvm::IRModule::FromExpr(tvm::RelayExpr const&, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void> const&, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void> const&) + 999
+  [bt] (5) 6   libtvm.dylib                        0x000000013da7d367 tvm::IRModuleNode::Add(tvm::GlobalVar const&, tvm::BaseFunc const&, bool) + 183
+  [bt] (4) 5   libtvm.dylib                        0x000000013da7ce0f tvm::RunTypeCheck(tvm::IRModule const&, tvm::GlobalVar const&, tvm::relay::Function) + 1103
+  [bt] (3) 4   libtvm.dylib                        0x000000013e3f1150 tvm::relay::InferType(tvm::relay::Function const&, tvm::IRModule const&, tvm::GlobalVar const&) + 544
+  [bt] (2) 3   libtvm.dylib                        0x000000013e3f02a7 tvm::relay::TypeInferencer::Infer(tvm::RelayExpr) + 119
+  [bt] (1) 2   libtvm.dylib                        0x000000013da6da7c tvm::ErrorReporter::RenderErrors(tvm::IRModule const&, bool) + 5708
+  [bt] (0) 1   libtvm.dylib                        0x000000013d87e85f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  [bt] (8) 9   libtvm.dylib                        0x000000013da7ce0f tvm::RunTypeCheck(tvm::IRModule const&, tvm::GlobalVar const&, tvm::relay::Function) + 1103
+  [bt] (7) 8   libtvm.dylib                        0x000000013e3f1150 tvm::relay::InferType(tvm::relay::Function const&, tvm::IRModule const&, tvm::GlobalVar const&) + 544
+  [bt] (6) 7   libtvm.dylib                        0x000000013e3f028b tvm::relay::TypeInferencer::Infer(tvm::RelayExpr) + 91
+  [bt] (5) 6   libtvm.dylib                        0x000000013e29e0a6 tvm::relay::TypeSolver::Solve() + 1126
+  [bt] (4) 5   libtvm.dylib                        0x000000013e29e6a3 tvm::TypedEnvFunc<bool (tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>::operator()(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&) const + 291
+  [bt] (3) 4   libtvm.dylib                        0x000000013dae595b void tvm::runtime::TypedPackedFunc<bool (tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>::AssignTypedLambda<bool (*)(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>(bool (*)(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&))::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)::operator()(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*) const + 555
+  [bt] (2) 3   libtvm.dylib                        0x000000013e186e70 tvm::relay::ReshapeRel(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&) + 416
+  [bt] (1) 2   libtvm.dylib                        0x000000013e184296 tvm::relay::infer_newshape(tvm::runtime::Array<tvm::PrimExpr, void> const&, tvm::Attrs const&) + 1638
+  [bt] (0) 1   libtvm.dylib                        0x000000013d87e85f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  [bt] (8) 9   libtvm.dylib                        0x000000013da7ce0f tvm::RunTypeCheck(tvm::IRModule const&, tvm::GlobalVar const&, tvm::relay::Function) + 1103
+  [bt] (7) 8   libtvm.dylib                        0x000000013e3f1150 tvm::relay::InferType(tvm::relay::Function const&, tvm::IRModule const&, tvm::GlobalVar const&) + 544
+  [bt] (6) 7   libtvm.dylib                        0x000000013e3f028b tvm::relay::TypeInferencer::Infer(tvm::RelayExpr) + 91
+  [bt] (5) 6   libtvm.dylib                        0x000000013e29e0a6 tvm::relay::TypeSolver::Solve() + 1126
+  [bt] (4) 5   libtvm.dylib                        0x000000013e29e6a3 tvm::TypedEnvFunc<bool (tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>::operator()(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&) const + 291
+  [bt] (3) 4   libtvm.dylib                        0x000000013dae595b void tvm::runtime::TypedPackedFunc<bool (tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>::AssignTypedLambda<bool (*)(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>(bool (*)(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&))::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)::operator()(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*) const + 555
+  [bt] (2) 3   libtvm.dylib                        0x000000013e186e70 tvm::relay::ReshapeRel(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&) + 416
+  [bt] (1) 2   libtvm.dylib                        0x000000013e184296 tvm::relay::infer_newshape(tvm::runtime::Array<tvm::PrimExpr, void> const&, tvm::Attrs const&) + 1638
+  [bt] (0) 1   libtvm.dylib                        0x000000013d87e85f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/src/ir/error.cc", line 132
+TVMError: [1m
+Error(s) have occurred. The program has been annotated with them:
+
+[0m[1mIn `main`: 
+[0m#[version = "0.0.5"]
+fn (%v00_input_object: Tensor[(1, 4, 2, 3, 2), float32], %model_1/04_dense/MatMul/ReadVariableOp:0: Tensor[(48, 150), float32], %v01_input_object: Tensor[(1, 4), float32], %model_1/06_dense/MatMul/ReadVariableOp:0: Tensor[(4, 150), float32], %model_1/06_dense/BiasAdd/ReadVariableOp:0: Tensor[(150), float32], %v02_input_object: Tensor[(1, 2, 3, 2), float32], %model_1/09_dense/MatMul/ReadVariableOp:0: Tensor[(12, 150), float32]) {
+  %0 = reshape(%v00_input_object, newshape=[-1, 48]);
+  %1 = transpose(%model_1/04_dense/MatMul/ReadVariableOp:0, axes=[1, 0]);
+  %2 = nn.dense(%0, %1, units=None);
+  %3 = reshape(%2, newshape=[0, 0, 0, 0, 0])[31m an internal invariant was violated while typechecking your program [09:51:50] /Users/BlindForAnonymous/Documents/tvm-0.7/src/relay/op/tensor/transform.cc:483: Check failed: src_idx < ishape.size() (2 vs. 2) : 
+; [39m;
+  %4 = transpose(%model_1/06_dense/MatMul/ReadVariableOp:0, axes=[1, 0]);
+  %5 = nn.dense(%v01_input_object, %4, units=None);
+  %6 = add(%5, %model_1/06_dense/BiasAdd/ReadVariableOp:0);
+  %7 = reshape(%6, newshape=[0, 0, 0, 0, 0])[31m an internal invariant was violated while typechecking your program [09:51:50] /Users/BlindForAnonymous/Documents/tvm-0.7/src/relay/op/tensor/transform.cc:483: Check failed: src_idx < ishape.size() (2 vs. 2) : 
+; [39m;
+  %8 = minimum(%3, %7);
+  %9 = reshape(%v02_input_object, newshape=[-1, 12]);
+  %10 = transpose(%model_1/09_dense/MatMul/ReadVariableOp:0, axes=[1, 0]);
+  %11 = nn.dense(%9, %10, units=None);
+  %12 = reshape(%11, newshape=[-1, 2, 5, 3, 5]);
+  %13 = minimum(%8, %12);
+  %14 = nn.pad(%13, pad_width=[[0, 0], [4, 4], [4, 4], [4, 4], [0, 0]]);
+  reshape(%14, newshape=[-1, 7150])
+}
+

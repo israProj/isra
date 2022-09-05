@@ -1,0 +1,61 @@
+error_log = 
+ Traceback (most recent call last):
+  [bt] (8) 9   libtvm.dylib                        0x000000012f381b6a tvm::relay::backend::MemoizedExprTranslator<std::__1::vector<tvm::relay::backend::GraphNodeRef, std::__1::allocator<tvm::relay::backend::GraphNodeRef> > >::VisitExpr(tvm::RelayExpr const&) + 458
+  [bt] (7) 8   libtvm.dylib                        0x000000012f3848ea tvm::relay::ExprFunctor<std::__1::vector<tvm::relay::backend::GraphNodeRef, std::__1::allocator<tvm::relay::backend::GraphNodeRef> > (tvm::RelayExpr const&)>::VisitExpr(tvm::RelayExpr const&) + 138
+  [bt] (6) 7   libtvm.dylib                        0x000000012f384bbf tvm::NodeFunctor<std::__1::vector<tvm::relay::backend::GraphNodeRef, std::__1::allocator<tvm::relay::backend::GraphNodeRef> > (tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<std::__1::vector<tvm::relay::backend::GraphNodeRef, std::__1::allocator<tvm::relay::backend::GraphNodeRef> > (tvm::RelayExpr const&)>*)>::operator()(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<std::__1::vector<tvm::relay::backend::GraphNodeRef, std::__1::allocator<tvm::relay::backend::GraphNodeRef> > (tvm::RelayExpr const&)>*) const + 255
+  [bt] (5) 6   libtvm.dylib                        0x000000012f3861f8 tvm::relay::ExprFunctor<std::__1::vector<tvm::relay::backend::GraphNodeRef, std::__1::allocator<tvm::relay::backend::GraphNodeRef> > (tvm::RelayExpr const&)>::InitVTable()::'lambda4'(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<std::__1::vector<tvm::relay::backend::GraphNodeRef, std::__1::allocator<tvm::relay::backend::GraphNodeRef> > (tvm::RelayExpr const&)>*)::__invoke(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<std::__1::vector<tvm::relay::backend::GraphNodeRef, std::__1::allocator<tvm::relay::backend::GraphNodeRef> > (tvm::RelayExpr const&)>*) + 24
+  [bt] (4) 5   libtvm.dylib                        0x000000012f3837a2 tvm::relay::backend::GraphRuntimeCodegen::VisitExpr_(tvm::relay::CallNode const*) + 4130
+  [bt] (3) 4   libtvm.dylib                        0x000000012f377a44 std::__1::__function::__func<void tvm::runtime::TypedPackedFunc<tvm::relay::CachedFunc (tvm::relay::CompileEngine, tvm::relay::CCacheKey)>::AssignTypedLambda<tvm::relay::$_8>(tvm::relay::$_8)::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*), std::__1::allocator<void tvm::runtime::TypedPackedFunc<tvm::relay::CachedFunc (tvm::relay::CompileEngine, tvm::relay::CCacheKey)>::AssignTypedLambda<tvm::relay::$_8>(tvm::relay::$_8)::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)>, void (tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)>::operator()(tvm::runtime::TVMArgs&&, tvm::runtime::TVMRetValue*&&) + 628
+  [bt] (2) 3   libtvm.dylib                        0x000000012f3647c2 tvm::relay::CompileEngineImpl::Lower(tvm::relay::CCacheKey const&) + 18
+  [bt] (1) 2   libtvm.dylib                        0x000000012f3672b1 tvm::relay::CompileEngineImpl::LowerInternal(tvm::relay::CCacheKey const&) + 3345
+  [bt] (0) 1   libtvm.dylib                        0x000000012f4e8615 std::__1::__function::__func<TVMFuncCreateFromCFunc::$_2, std::__1::allocator<TVMFuncCreateFromCFunc::$_2>, void (tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)>::operator()(tvm::runtime::TVMArgs&&, tvm::runtime::TVMRetValue*&&) + 213
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/relay/backend/_backend.py", line 49, in lower
+    f = tvm.driver.lower(sch, inputs, name=func_name)
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/driver/build_module.py", line 164, in lower
+    mod = form_irmodule(sch, args, name, binds)
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/driver/build_module.py", line 107, in form_irmodule
+    stmt = schedule.ScheduleOps(sch, bounds)
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/_ffi/_ctypes/packed_func.py", line 237, in __call__
+    raise get_last_ffi_error()
+  [bt] (8) 9   libtvm.dylib                        0x000000012eb1bffc tvm::te::ComputeOpNode::BuildProvide(tvm::te::Stage const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::Range, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::Range> > > const&, bool) const + 316
+  [bt] (7) 8   libtvm.dylib                        0x000000012eb18b14 tvm::te::MakeComputeStmt(tvm::te::ComputeOpNode const*, tvm::te::Stage const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::Range, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::Range> > > const&, bool) + 52
+  [bt] (6) 7   libtvm.dylib                        0x000000012eb19f85 tvm::te::ComputeLoopNest::Create(tvm::te::BaseComputeOpNode const*, tvm::te::Stage const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::Range, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::Range> > > const&, bool) + 565
+  [bt] (5) 6   libtvm.dylib                        0x000000012eb3e461 tvm::te::MakeLoopNest(tvm::te::Stage const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::Range, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::Range> > > const&, unsigned long, bool, std::__1::unordered_set<tvm::tir::IterVar, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<tvm::tir::IterVar> > const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::PrimExpr, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::PrimExpr> > >*, bool) + 10673
+  [bt] (4) 5   libtvm.dylib                        0x000000012eb82224 tvm::te::PassUpIndex(tvm::te::Stage const&, tvm::Map<tvm::tir::IterVar, tvm::Range, void, void> const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::PrimExpr, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::PrimExpr> > >*, bool) + 2180
+  [bt] (3) 4   libtvm.dylib                        0x000000012ec6e6dc tvm::indexdiv(tvm::PrimExpr, tvm::PrimExpr) + 60
+  [bt] (2) 3   libtvm.dylib                        0x000000012ec6e8d0 tvm::floordiv(tvm::PrimExpr, tvm::PrimExpr) + 304
+  [bt] (1) 2   libtvm.dylib                        0x000000012e7e5753 tvm::PrimExpr tvm::arith::TryConstFold<tvm::tir::FloorDiv>(tvm::PrimExpr, tvm::PrimExpr) + 707
+  [bt] (0) 1   libtvm.dylib                        0x000000012e7c985f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/src/arith/const_fold.h", line 207
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/_ffi/_ctypes/packed_func.py", line 81, in cfun
+    rv = local_pyfunc(*pyargs)
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/relay/backend/_backend.py", line 57, in lower
+    raise RuntimeError(msg)
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/relay/backend/_backend.py", line 49, in lower
+    f = tvm.driver.lower(sch, inputs, name=func_name)
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/driver/build_module.py", line 164, in lower
+    mod = form_irmodule(sch, args, name, binds)
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/driver/build_module.py", line 107, in form_irmodule
+    stmt = schedule.ScheduleOps(sch, bounds)
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/python/tvm/_ffi/_ctypes/packed_func.py", line 237, in __call__
+    raise get_last_ffi_error()
+  [bt] (8) 9   libtvm.dylib                        0x000000012eb1bffc tvm::te::ComputeOpNode::BuildProvide(tvm::te::Stage const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::Range, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::Range> > > const&, bool) const + 316
+  [bt] (7) 8   libtvm.dylib                        0x000000012eb18b14 tvm::te::MakeComputeStmt(tvm::te::ComputeOpNode const*, tvm::te::Stage const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::Range, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::Range> > > const&, bool) + 52
+  [bt] (6) 7   libtvm.dylib                        0x000000012eb19f85 tvm::te::ComputeLoopNest::Create(tvm::te::BaseComputeOpNode const*, tvm::te::Stage const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::Range, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::Range> > > const&, bool) + 565
+  [bt] (5) 6   libtvm.dylib                        0x000000012eb3e461 tvm::te::MakeLoopNest(tvm::te::Stage const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::Range, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::Range> > > const&, unsigned long, bool, std::__1::unordered_set<tvm::tir::IterVar, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<tvm::tir::IterVar> > const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::PrimExpr, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::PrimExpr> > >*, bool) + 10673
+  [bt] (4) 5   libtvm.dylib                        0x000000012eb82224 tvm::te::PassUpIndex(tvm::te::Stage const&, tvm::Map<tvm::tir::IterVar, tvm::Range, void, void> const&, std::__1::unordered_map<tvm::tir::IterVar, tvm::PrimExpr, std::__1::hash<tvm::tir::IterVar>, std::__1::equal_to<tvm::tir::IterVar>, std::__1::allocator<std::__1::pair<tvm::tir::IterVar const, tvm::PrimExpr> > >*, bool) + 2180
+  [bt] (3) 4   libtvm.dylib                        0x000000012ec6e6dc tvm::indexdiv(tvm::PrimExpr, tvm::PrimExpr) + 60
+  [bt] (2) 3   libtvm.dylib                        0x000000012ec6e8d0 tvm::floordiv(tvm::PrimExpr, tvm::PrimExpr) + 304
+  [bt] (1) 2   libtvm.dylib                        0x000000012e7e5753 tvm::PrimExpr tvm::arith::TryConstFold<tvm::tir::FloorDiv>(tvm::PrimExpr, tvm::PrimExpr) + 707
+  [bt] (0) 1   libtvm.dylib                        0x000000012e7c985f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/src/arith/const_fold.h", line 207
+TVMError: Check failed: pb->value != 0 (0 vs. 0) : Divide by zero
+During handling of the above exception, another exception occurred:
+
+TVMError: Check failed: pb->value != 0 (0 vs. 0) : Divide by zero
+Error during compile function
+-----------------------------
+#[version = "0.0.5"]
+fn (%p0: Tensor[(1, 1, 2, 1, 3), float32], Primitive=1) -> Tensor[(1, 1, 0, 1, 1), float32] {
+  nn.avg_pool3d(%p0, pool_size=[5, 4, 4], strides=[3, 5, 4], padding=[0, 0, 0, 0, 0, 0], count_include_pad=True) /* ty=Tensor[(1, 1, 0, 1, 1), float32] */
+}

@@ -1,0 +1,13 @@
+error_log = 
+ Traceback (most recent call last):
+  [bt] (8) 9   libtvm.dylib                        0x000000012f407ff8 tvm::relay::ExprMutator::VisitExpr_(tvm::relay::CallNode const*) + 584
+  [bt] (7) 8   libtvm.dylib                        0x000000012f405c73 tvm::relay::ExprMutator::VisitExpr(tvm::RelayExpr const&) + 339
+  [bt] (6) 7   libtvm.dylib                        0x000000012f2d554a tvm::relay::ExprFunctor<tvm::RelayExpr (tvm::RelayExpr const&)>::VisitExpr(tvm::RelayExpr const&) + 138
+  [bt] (5) 6   libtvm.dylib                        0x000000012f2d581f tvm::NodeFunctor<tvm::RelayExpr (tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<tvm::RelayExpr (tvm::RelayExpr const&)>*)>::operator()(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<tvm::RelayExpr (tvm::RelayExpr const&)>*) const + 255
+  [bt] (4) 5   libtvm.dylib                        0x000000012f2d6f08 tvm::relay::ExprFunctor<tvm::RelayExpr (tvm::RelayExpr const&)>::InitVTable()::'lambda4'(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<tvm::RelayExpr (tvm::RelayExpr const&)>*)::__invoke(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<tvm::RelayExpr (tvm::RelayExpr const&)>*) + 24
+  [bt] (3) 4   libtvm.dylib                        0x000000012f288a1e tvm::relay::ConstantFolder::VisitExpr_(tvm::relay::CallNode const*) + 2158
+  [bt] (2) 3   libtvm.dylib                        0x000000012f28af0c tvm::relay::ConstantFolder::ConstEvaluate(tvm::RelayExpr) + 2428
+  [bt] (1) 2   libtvm.dylib                        0x000000012f28c2fe tvm::relay::ConstantFolder::ObjectToExpr(tvm::runtime::ObjectRef const&) + 398
+  [bt] (0) 1   libtvm.dylib                        0x000000012e7c985f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/src/relay/transforms/fold_constant.cc", line 203
+TVMError: Check failed: dim > 0 (0 vs. 0) : invalid dimension after constant eval

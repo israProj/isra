@@ -1,0 +1,4 @@
+number= 256
+
+error_log = 
+ differential_testing: different results on onnxrt and tvm_with_opt_0!

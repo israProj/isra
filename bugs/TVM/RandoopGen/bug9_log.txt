@@ -1,0 +1,11 @@
+error_log = 
+ Traceback (most recent call last):
+  [bt] (6) 7   ???                                 0x00007ffee8b49260 0x0 + 140732802568800
+  [bt] (5) 6   libffi.7.dylib                      0x0000000113941ead ffi_call_unix64 + 85
+  [bt] (4) 5   libtvm.dylib                        0x000000012f4e5ca6 TVMFuncCall + 70
+  [bt] (3) 4   libtvm.dylib                        0x000000012f54d639 std::__1::__function::__func<tvm::runtime::GraphRuntime::GetFunction(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)::$_10, std::__1::allocator<tvm::runtime::GraphRuntime::GetFunction(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)::$_10>, void (tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)>::operator()(tvm::runtime::TVMArgs&&, tvm::runtime::TVMRetValue*&&) + 105
+  [bt] (2) 3   libtvm.dylib                        0x000000012f54b0c1 std::__1::__function::__func<tvm::runtime::GraphRuntime::CreateTVMOp(tvm::runtime::TVMOpParam const&, std::__1::vector<DLTensor, std::__1::allocator<DLTensor> > const&, unsigned long)::$_2, std::__1::allocator<tvm::runtime::GraphRuntime::CreateTVMOp(tvm::runtime::TVMOpParam const&, std::__1::vector<DLTensor, std::__1::allocator<DLTensor> > const&, unsigned long)::$_2>, void ()>::operator()() + 81
+  [bt] (1) 2   libtvm.dylib                        0x000000012f4f0b46 std::__1::__function::__func<tvm::runtime::WrapPackedFunc(int (*)(TVMValue*, int*, int, TVMValue*, int*, void*), tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)::$_0, std::__1::allocator<tvm::runtime::WrapPackedFunc(int (*)(TVMValue*, int*, int, TVMValue*, int*, void*), tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)::$_0>, void (tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)>::operator()(tvm::runtime::TVMArgs&&, tvm::runtime::TVMRetValue*&&) + 262
+  [bt] (0) 1   libtvm.dylib                        0x000000012e7c985f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/src/runtime/library_module.cc", line 78
+TVMError: Check failed: ret == 0 (-1 vs. 0) : Assert fail: (0 == int32(arg1.shape[2])), Argument arg1.shape[2] has an unsatisfied constraint

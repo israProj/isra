@@ -1,0 +1,4 @@
+number= 116
+
+error_log = 
+ sum() got multiple values for argument 'axis'

@@ -1,0 +1,2 @@
+error_log = 
+ Number of pads must be either 2 or 4.

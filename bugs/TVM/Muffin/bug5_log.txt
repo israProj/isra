@@ -1,0 +1,13 @@
+number= 14
+
+error_log = 
+ Traceback (most recent call last):
+  [bt] (6) 7   ???                                 0x00007ffee750e970 0x0 + 140732779260272
+  [bt] (5) 6   libffi.7.dylib                      0x0000000109147ead ffi_call_unix64 + 85
+  [bt] (4) 5   libtvm.dylib                        0x000000013e59aca6 TVMFuncCall + 70
+  [bt] (3) 4   libtvm.dylib                        0x000000013e1c6239 void tvm::runtime::TypedPackedFunc<tvm::RelayExpr (tvm::RelayExpr, tvm::runtime::Array<tvm::Integer, void>)>::AssignTypedLambda<tvm::RelayExpr (*)(tvm::RelayExpr, tvm::runtime::Array<tvm::Integer, void>)>(tvm::RelayExpr (*)(tvm::RelayExpr, tvm::runtime::Array<tvm::Integer, void>))::'lambda'(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)::operator()(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*) const + 361
+  [bt] (2) 3   libtvm.dylib                        0x000000013d9d3f0e tvm::runtime::TVMMovableArgValue_::operator tvm::runtime::Array<tvm::Integer, void><tvm::runtime::Array<tvm::Integer, void>, void>() const + 126
+  [bt] (1) 2   libtvm.dylib                        0x000000013d9d43ae tvm::runtime::Array<tvm::Integer, void> tvm::runtime::TVMPODValue_::AsObjectRef<tvm::runtime::Array<tvm::Integer, void> >() const + 1022
+  [bt] (0) 1   libtvm.dylib                        0x000000013d87e85f dmlc::LogMessageFatal::~LogMessageFatal() + 111
+  File "/Users/BlindForAnonymous/Documents/tvm-0.7/include/tvm/runtime/packed_func.h", line 1391
+TVMError: Check failed: ObjectTypeChecker<TObjectRef>: :Check(ptr): Expect Array[IntImm] but get relay.Var
