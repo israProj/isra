@@ -101,7 +101,7 @@ To run the experiments on coverage measurement, you can download the models from
 
 `models.zip` contains models and metric results for the experiments on coverage measurement. You should unzip it into this isra folder.
 
-`fix-muffin.zip` contains the onnx models transferred from Muffin-generated models for the experiment that compares Isra with Muffin (i.e., Experiment #3). Its dir is the `--dir` argument of getops.py and getmuffinmetric.py.
+`fix-muffin.zip` contains the onnx models transferred from Muffin-generated models for the experiment that compares Isra with Muffin (i.e., Experiment #3). Its dir is the `--dir` argument of `getops.py` and `getmuffinmetric.py`.
 
 
 
