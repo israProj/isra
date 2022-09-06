@@ -62,6 +62,7 @@ python getmetric.py --minnode %d --maxnode %d --pickrate %s --type %s --case %s 
 (2) python g2.py --pickrate %s --seed %d
 (3) python getmuffinmetric.py --pickrate %s --dir dir_to_muffin_onnx_models
 
+
 # write the results into excels 
 # results of experiment for pickrate
 python table.py --interval model_interval --total total_model --type pickrate --minnode %d --maxnode %d 
@@ -70,6 +71,7 @@ python table.py --interval model_interval --total total_model --type pickrate --
 # results of experiment for baseline
 python table.py --interval model_interval --total total_model --type baseline --minnode %d --maxnode %d --pickrate %s
 #eg: python table.py --interval 250 --total 10000 --type baseline --minnode 1 --maxnode 30 --pickrate 0.97
+
 # results of experiment for baseline Muffin
 python table.py --interval model_interval --total total_model --type muffin --pickrate %s
 # eg: python table.py --interval 250 --total 10000 --type muffin --pickrate 0.97
@@ -93,6 +95,13 @@ For Glow and AnonymousX, we run the bug detection with compiler's command line i
 
 Detailed settings are in `settings.py`. 
 
+#### Data
+
+To run the experiments on coverage measurement, you can download the models from [models](https://drive.google.com/file/d/1-B947ESrvTAc7p_6XzvoyXvE24gvN763/view) and [fix-muffin](https://drive.google.com/file/d/14OIn7ulJBBxyXOS-qu9zy5RcfPGmdNo5/view).
+
+`models.zip` contains models and metric results for the experiments on coverage measurement. You should unzip it into this isra folder.
+
+`fix-muffin.zip` contains the onnx models transferred from Muffin-generated models for the experiment that compares Isra with Muffin (i.e., Experiment #3). Its dir is the --dir argument of getops.py and getmuffinmetric.py.
 
 
 
@@ -304,7 +313,7 @@ We also present figures of the increase of operation-level metrics over the numb
 
 The distributions of different operators in Isra and two baselines are shown in the following fig:
 
-![distribution]((https://raw.githubusercontent.com/israProj/isra/main/imgs/Distribution-Experiment%231.png))
+![distribution](https://raw.githubusercontent.com/israProj/isra/main/imgs/Distribution-Experiment%231.png)
 
 ### #2. Generate a fixed number of models of multiple sizes `[1-200]`, compared with baselines DeclGen and Randoop-Gen.
 
