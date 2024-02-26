@@ -80,7 +80,7 @@ python table.py --interval model_interval --total total_model --type muffin --pi
 
 #### Bug Detection 
 
-By feeding generated models, as well as random input data for models, into compilers,  we can test various compilers, including TVM, Glow and AnonymousX. Let's take TVM as an example.
+By feeding generated models, as well as random input data for models, into compilers,  we can test various compilers, including TVM, Glow and SophGo. Let's take TVM as an example.
 
 ```bash
 # install TVM-v0.7
@@ -89,7 +89,7 @@ python tvm_detecter.py --minnode 1 --maxnode 10 --times 300
 # Then check with the folder named res_genmodel-g-tmp
 ```
 
-For Glow and AnonymousX, we run the bug detection with compiler's command line interfaces.
+For Glow and SophGo, we run the bug detection with compiler's command line interfaces.
 
 #### Settings
 
@@ -416,7 +416,36 @@ The results of metrics of different *pickRate* values are presented in the table
 
 Bug details are shown in bugs.xlsx and bugs folder.
 
-We provide with reproducible packages for all of bugs that each approach detected, including the buggy models, inputs, and error messages. We will also release URLs of bug issues we reported in the community after anonymous reviewing. The bugs in the folder `bugs` are arranged as follows: `bugs/COMPILER_NAME/APPROACH_NAME`.
+We provide with reproducible packages for all of bugs that each approach detected, including the buggy models, inputs, and error messages. The bugs in the folder `bugs` are arranged as follows: `bugs/COMPILER_NAME/APPROACH_NAME`.
+
+We also list previously unknown bugs found by our approach (as well as corresponding bug issues we reported in the community) as follows. 
+
+| ID        | Type         | Location | Confirmed | Fixed     | Issue ID |
+| --------- | ------------ | -------- | --------- | --------- | -------- |
+| TVM-1     | error        | backend  | < 1 day   | 10 days   | 7200     |
+| TVM-2     | error        | frontend | < 1 day   | < 1 day   | 7202     |
+| TVM-3     | error        | frontend | < 1 day   | 6 months  | 7241     |
+| TVM-4     | error        | frontend | < 1 day   | < 1 day   | 7244     |
+| TVM-5     | error        | backend  | 7 months  | 7 months  | 7262     |
+| TVM-6     | error        | frontend | 42 days   | 42 days   | 7263     |
+| TVM-7     | error        | frontend | < 2 days  | 10 months | 8889     |
+| TVM-8     | error        | backend  | < 2 days  | 10 months | 8890     |
+| TVM-9     | wrong-result | backend  | N/A       | 10 months | 7270     |
+| TVM-10    | wrong-result | unknown  | N/A       | N/A       | 12734    |
+| TVM-11    | error        | unknown  | N/A       | N/A       | 12735    |
+| Glow-1    | error        | backend  | 13 days   | N/A       | 5995     |
+| Glow-2    | error        | unknown  | N/A       | N/A       | 5991     |
+| SophGo-1  | error        | frontend | < 3 days  | N/A       | *        |
+| SophGo-2  | error        | backend  | < 3 days  | < 7 days  | *        |
+| SophGo-3  | error        | backend  | < 3 days  | < 7 days  | *        |
+| SophGo-4  | error        | frontend | < 3 days  | < 7 days  | *        |
+| SophGo-5  | error        | backend  | < 3 days  | < 7 days  | *        |
+| SophGo-6  | error        | backend  | < 3 days  | < 7 days  | *        |
+| SophGo-7  | wrong-result | backend  | < 3 days  | < 7 days  | *        |
+| SophGo-8  | error        | frontend | < 3 days  | < 7 days  | *        |
+| SophGo-9  | error        | frontend | < 3 days  | < 7 days  | *        |
+| SophGo-10 | error        | frontend | < 3 days  | N/A       | *        |
+| SophGo-11 | error        | backend  | < 3 days  | < 7 days  | *        |
 
 
 

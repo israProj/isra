@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  [bt] (4) /artifact/sut/tvm/build/libtvm.so(TVMFuncCall+0x63) [0x7f1b06887363]
+  [bt] (3) /artifact/sut/tvm/build/libtvm.so(std::_Function_handler<void (tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*), tvm::runtime::TypedPackedFunc<tvm::RelayExpr (tvm::RelayExpr, tvm::runtime::Array<tvm::Integer, void>)>::AssignTypedLambda<tvm::RelayExpr (*)(tvm::RelayExpr, tvm::runtime::Array<tvm::Integer, void>)>(tvm::RelayExpr (*)(tvm::RelayExpr, tvm::runtime::Array<tvm::Integer, void>))::{lambda(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)#1}>::_M_invoke(std::_Any_data const&, tvm::runtime::TVMArgs&&, tvm::runtime::TVMRetValue*&&)+0x1c6) [0x7f1b0642b7b6]
+  [bt] (2) /artifact/sut/tvm/build/libtvm.so(tvm::runtime::TVMMovableArgValue_::operator tvm::runtime::Array<tvm::Integer, void><tvm::runtime::Array<tvm::Integer, void>, void>() const+0x107) [0x7f1b063e2a17]
+  [bt] (1) /artifact/sut/tvm/build/libtvm.so(tvm::runtime::Array<tvm::Integer, void> tvm::runtime::TVMPODValue_::AsObjectRef<tvm::runtime::Array<tvm::Integer, void> >() const+0x3b6) [0x7f1b05c026f6]
+  [bt] (0) /artifact/sut/tvm/build/libtvm.so(+0x73c3b8) [0x7f1b05bf23b8]
+  File "/artifact/sut/tvm/include/tvm/runtime/packed_func.h", line 1405
+TVMError: 
+---------------------------------------------------------------
+An internal invariant was violated during the execution of TVM.
+Please read TVM's error reporting guidelines.
+More details can be found here: https://discuss.tvm.ai/t/error-reporting/7793.
+---------------------------------------------------------------
+  Check failed: ObjectTypeChecker<TObjectRef>::Check(ptr) == false: Expect Array[IntImm] but get relay.Var

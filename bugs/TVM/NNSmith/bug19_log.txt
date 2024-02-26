@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  [bt] (6) /artifact/sut/tvm/build/libtvm.so(TVMFuncCall+0x63) [0x7f1088363363]
+  [bt] (5) /artifact/sut/tvm/build/libtvm.so(+0x8431d4) [0x7f10877d51d4]
+  [bt] (4) /artifact/sut/tvm/build/libtvm.so(tvm::transform::ModulePassNode::operator()(tvm::IRModule, tvm::transform::PassContext const&) const+0x1d4) [0x7f10877d4834]
+  [bt] (3) /artifact/sut/tvm/build/libtvm.so(+0x11de522) [0x7f1088170522]
+  [bt] (2) /artifact/sut/tvm/build/libtvm.so(+0x11dd4a7) [0x7f108816f4a7]
+  [bt] (1) /artifact/sut/tvm/build/libtvm.so(tvm::DiagnosticContext::Render()+0x231) [0x7f10877857f1]
+  [bt] (0) /artifact/sut/tvm/build/libtvm.so(+0x7f33e8) [0x7f10877853e8]
+  File "/artifact/sut/tvm/src/ir/diagnostic.cc", line 105
+DiagnosticError: one or more error diagnostics were emitted, please check diagnostic render for output.

@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  [bt] (8) /artifact/sut/tvm/build/libtvm.so(TVMFuncCall+0x63) [0x7f1088363363]
+  [bt] (7) /artifact/sut/tvm/build/libtvm.so(+0x82265d) [0x7f10877b465d]
+  [bt] (6) /artifact/sut/tvm/build/libtvm.so(tvm::IRModule::FromExpr(tvm::RelayExpr const&, tvm::Map<tvm::GlobalVar, tvm::BaseFunc, void, void> const&, tvm::Map<tvm::GlobalTypeVar, tvm::TypeData, void, void> const&)+0x3b2) [0x7f10877af7d2]
+  [bt] (5) /artifact/sut/tvm/build/libtvm.so(tvm::relay::FreeTypeVars(tvm::RelayExpr const&, tvm::IRModule const&)+0x151) [0x7f1087feaeb1]
+  [bt] (4) /artifact/sut/tvm/build/libtvm.so(tvm::relay::MixedModeVisitor::VisitExpr(tvm::RelayExpr const&)+0x60) [0x7f1088263660]
+  [bt] (3) /artifact/sut/tvm/build/libtvm.so(+0x12d0f59) [0x7f1088262f59]
+  [bt] (2) /artifact/sut/tvm/build/libtvm.so(tvm::relay::MixedModeVisitor::VisitLeaf(tvm::RelayExpr const&)+0x8b) [0x7f1088262b7b]
+  [bt] (1) /artifact/sut/tvm/build/libtvm.so(tvm::relay::ExprFunctor<void (tvm::RelayExpr const&)>::VisitExpr(tvm::RelayExpr const&)+0x18c) [0x7f108821184c]
+  [bt] (0) /artifact/sut/tvm/build/libtvm.so(+0x1268958) [0x7f10881fa958]
+  File "/artifact/sut/tvm/include/tvm/relay/expr_functor.h", line 91
+TVMError: 
+---------------------------------------------------------------
+An internal invariant was violated during the execution of TVM.
+Please read TVM's error reporting guidelines.
+More details can be found here: https://discuss.tvm.ai/t/error-reporting/7793.
+---------------------------------------------------------------
+  Check failed: n.defined() == false: 

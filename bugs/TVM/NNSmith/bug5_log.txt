@@ -1,0 +1,1 @@
+batch_norm() got an unexpected keyword argument 'training_mode'

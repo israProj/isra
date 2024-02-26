@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  [bt] (8) /artifact/sut/tvm/build/libtvm.so(tvm::relay::backend::MemoizedExprTranslator<tvm::runtime::Array<tvm::te::Tensor, void> >::VisitExpr(tvm::RelayExpr const&)+0xbe) [0x7f10881af22e]
+  [bt] (7) /artifact/sut/tvm/build/libtvm.so(tvm::relay::ExprFunctor<tvm::runtime::Array<tvm::te::Tensor, void> (tvm::RelayExpr const&)>::VisitExpr(tvm::RelayExpr const&)+0x76) [0x7f10881aef86]
+  [bt] (6) /artifact/sut/tvm/build/libtvm.so(tvm::relay::ExprFunctor<tvm::runtime::Array<tvm::te::Tensor, void> (tvm::RelayExpr const&)>::InitVTable()::{lambda(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<tvm::runtime::Array<tvm::te::Tensor, void> (tvm::RelayExpr const&)>*)#6}::_FUN(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<tvm::runtime::Array<tvm::te::Tensor, void> (tvm::RelayExpr const&)>*)+0x2c) [0x7f10881a0b1c]
+  [bt] (5) /artifact/sut/tvm/build/libtvm.so(tvm::relay::ScheduleGetter::VisitExpr_(tvm::relay::CallNode const*)+0x15c) [0x7f10881a6ddc]
+  [bt] (4) /artifact/sut/tvm/build/libtvm.so(tvm::relay::backend::MemoizedExprTranslator<tvm::runtime::Array<tvm::te::Tensor, void> >::VisitExpr(tvm::RelayExpr const&)+0xbe) [0x7f10881af22e]
+  [bt] (3) /artifact/sut/tvm/build/libtvm.so(tvm::relay::ExprFunctor<tvm::runtime::Array<tvm::te::Tensor, void> (tvm::RelayExpr const&)>::VisitExpr(tvm::RelayExpr const&)+0x76) [0x7f10881aef86]
+  [bt] (2) /artifact/sut/tvm/build/libtvm.so(tvm::relay::ExprFunctor<tvm::runtime::Array<tvm::te::Tensor, void> (tvm::RelayExpr const&)>::InitVTable()::{lambda(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<tvm::runtime::Array<tvm::te::Tensor, void> (tvm::RelayExpr const&)>*)#6}::_FUN(tvm::runtime::ObjectRef const&, tvm::relay::ExprFunctor<tvm::runtime::Array<tvm::te::Tensor, void> (tvm::RelayExpr const&)>*)+0x2c) [0x7f10881a0b1c]
+  [bt] (1) /artifact/sut/tvm/build/libtvm.so(tvm::relay::ScheduleGetter::VisitExpr_(tvm::relay::CallNode const*)+0x6d6) [0x7f10881a7356]
+  [bt] (0) /artifact/sut/tvm/build/libtvm.so(+0x526fad) [0x7f10874b8fad]
+  File "/artifact/sut/tvm/python/tvm/_ffi/_ctypes/packed_func.py", line 81, in cfun
+    rv = local_pyfunc(*pyargs)
+  File "/artifact/sut/tvm/python/tvm/relay/backend/compile_engine.py", line 300, in lower_call
+    best_impl, outputs = select_implementation(op, call.attrs, inputs, ret_type, target)
+  File "/artifact/sut/tvm/python/tvm/relay/backend/compile_engine.py", line 217, in select_implementation
+    outs = impl.compute(attrs, inputs, out_type)
+  File "/artifact/sut/tvm/python/tvm/relay/op/op.py", line 90, in compute
+    return _OpImplementationCompute(self, attrs, inputs, out_type)
+  File "/artifact/sut/tvm/python/tvm/_ffi/_ctypes/packed_func.py", line 237, in __call__
+    raise get_last_ffi_error()
+  [bt] (6) /artifact/sut/tvm/build/libtvm.so(TVMFuncCall+0x63) [0x7f1088363363]
+  [bt] (5) /artifact/sut/tvm/build/libtvm.so(+0x12e8c1c) [0x7f108827ac1c]
+  [bt] (4) /artifact/sut/tvm/build/libtvm.so(tvm::relay::OpImplementation::Compute(tvm::Attrs const&, tvm::runtime::Array<tvm::te::Tensor, void> const&, tvm::Type const&)+0xb6) [0x7f108827a9f6]
+  [bt] (3) /artifact/sut/tvm/build/libtvm.so(tvm::runtime::TypedPackedFunc<tvm::runtime::Array<tvm::te::Tensor, void> (tvm::Attrs const&, tvm::runtime::Array<tvm::te::Tensor, void> const&, tvm::Type const&)>::AssignTypedLambda<tvm::runtime::Array<tvm::te::Tensor, void> (*)(tvm::Attrs const&, tvm::runtime::Array<tvm::te::Tensor, void> const&, tvm::Type const&)>(tvm::runtime::Array<tvm::te::Tensor, void> (*)(tvm::Attrs const&, tvm::runtime::Array<tvm::te::Tensor, void> const&, tvm::Type const&))::{lambda(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)#1}::operator()(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*) const+0x4fa) [0x7f1087d3616a]
+  [bt] (2) /artifact/sut/tvm/build/libtvm.so(tvm::relay::BroadCastToCompute(tvm::Attrs const&, tvm::runtime::Array<tvm::te::Tensor, void> const&, tvm::Type const&)+0xc9) [0x7f1087eec309]
+  [bt] (1) /artifact/sut/tvm/build/libtvm.so(tvm::topi::broadcast_to(tvm::te::Tensor const&, tvm::runtime::Array<tvm::PrimExpr, void> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x38b) [0x7f1087bf17ab]
+  [bt] (0) /artifact/sut/tvm/build/libtvm.so(+0xc3b6c8) [0x7f1087bcd6c8]
+  File "/artifact/sut/tvm/include/tvm/topi/broadcast.h", line 62
+TVMError: 
+---------------------------------------------------------------
+An internal invariant was violated during the execution of TVM.
+Please read TVM's error reporting guidelines.
+More details can be found here: https://discuss.tvm.ai/t/error-reporting/7793.
+---------------------------------------------------------------
+  Check failed: topi::detail::EqualCheck(output_shape[i], bh.common_shape[i]) == false: 

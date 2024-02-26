@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  [bt] (8) /artifact/sut/tvm/build/libtvm.so(tvm::relay::transform::FunctionPassNode::operator()(tvm::IRModule, tvm::transform::PassContext const&) const+0x8f7) [0x7f1b067a6037]
+  [bt] (7) /artifact/sut/tvm/build/libtvm.so(+0x10fc64e) [0x7f1b065b264e]
+  [bt] (6) /artifact/sut/tvm/build/libtvm.so(tvm::relay::DynamicToStatic(tvm::relay::Function, tvm::IRModule)+0x530) [0x7f1b065b0660]
+  [bt] (5) /artifact/sut/tvm/build/libtvm.so(tvm::transform::ModulePassNode::operator()(tvm::IRModule, tvm::transform::PassContext const&) const+0x1d4) [0x7f1b05cf8834]
+  [bt] (4) /artifact/sut/tvm/build/libtvm.so(+0x11de522) [0x7f1b06694522]
+  [bt] (3) /artifact/sut/tvm/build/libtvm.so(+0x11dd438) [0x7f1b06693438]
+  [bt] (2) /artifact/sut/tvm/build/libtvm.so(tvm::relay::TypeInferencer::Infer(tvm::GlobalVar, tvm::relay::Function)+0x75) [0x7f1b06692b25]
+  [bt] (1) /artifact/sut/tvm/build/libtvm.so(+0x4edab9) [0x7f1b059a3ab9]
+  [bt] (0) /artifact/sut/tvm/build/libtvm.so(+0x10459c8) [0x7f1b064fb9c8]
+  [bt] (8) /artifact/sut/tvm/build/libtvm.so(tvm::relay::DynamicToStatic(tvm::relay::Function, tvm::IRModule)+0x530) [0x7f1b065b0660]
+  [bt] (7) /artifact/sut/tvm/build/libtvm.so(tvm::transform::ModulePassNode::operator()(tvm::IRModule, tvm::transform::PassContext const&) const+0x1d4) [0x7f1b05cf8834]
+  [bt] (6) /artifact/sut/tvm/build/libtvm.so(+0x11de522) [0x7f1b06694522]
+  [bt] (5) /artifact/sut/tvm/build/libtvm.so(+0x11dd438) [0x7f1b06693438]
+  [bt] (4) /artifact/sut/tvm/build/libtvm.so(tvm::relay::TypeInferencer::Infer(tvm::GlobalVar, tvm::relay::Function)+0x75) [0x7f1b06692b25]
+  [bt] (3) /artifact/sut/tvm/build/libtvm.so(tvm::relay::TypeSolver::Solve()+0x45c) [0x7f1b064fe3bc]
+  [bt] (2) /artifact/sut/tvm/build/libtvm.so(tvm::runtime::TypedPackedFunc<bool (tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>::AssignTypedLambda<bool (*)(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>(bool (*)(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&))::{lambda(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)#1}::operator()(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*) const+0x557) [0x7f1b05d541f7]
+  [bt] (1) /artifact/sut/tvm/build/libtvm.so(tvm::relay::PadRel(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)+0xb29) [0x7f1b0636c729]
+  [bt] (0) /artifact/sut/tvm/build/libtvm.so(+0xeb5078) [0x7f1b0636b078]
+  File "/artifact/sut/tvm/src/relay/analysis/type_solver.cc", line 622
+TVMError: 
+---------------------------------------------------------------
+An internal invariant was violated during the execution of TVM.
+Please read TVM's error reporting guidelines.
+More details can be found here: https://discuss.tvm.ai/t/error-reporting/7793.
+---------------------------------------------------------------
+  Check failed: false == false: [07:45:48] /artifact/sut/tvm/src/relay/op/nn/pad.cc:142: 
+---------------------------------------------------------------
+An internal invariant was violated during the execution of TVM.
+Please read TVM's error reporting guidelines.
+More details can be found here: https://discuss.tvm.ai/t/error-reporting/7793.
+---------------------------------------------------------------
+  Check failed: *width1 >= 0 == false: Param width elements should be positive but first pad width at index 0 is -1.

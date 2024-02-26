@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  [bt] (7) /artifact/sut/tvm/build/libtvm.so(TVMFuncCall+0x63) [0x7f1088363363]
+  [bt] (6) /artifact/sut/tvm/build/libtvm.so(+0x8431d4) [0x7f10877d51d4]
+  [bt] (5) /artifact/sut/tvm/build/libtvm.so(tvm::transform::ModulePassNode::operator()(tvm::IRModule, tvm::transform::PassContext const&) const+0x1d4) [0x7f10877d4834]
+  [bt] (4) /artifact/sut/tvm/build/libtvm.so(+0x11de522) [0x7f1088170522]
+  [bt] (3) /artifact/sut/tvm/build/libtvm.so(+0x11dd438) [0x7f108816f438]
+  [bt] (2) /artifact/sut/tvm/build/libtvm.so(tvm::relay::TypeInferencer::Infer(tvm::GlobalVar, tvm::relay::Function)+0x75) [0x7f108816eb25]
+  [bt] (1) /artifact/sut/tvm/build/libtvm.so(+0x4edab9) [0x7f108747fab9]
+  [bt] (0) /artifact/sut/tvm/build/libtvm.so(+0x10459c8) [0x7f1087fd79c8]
+  [bt] (8) /artifact/sut/tvm/build/libtvm.so(+0x8431d4) [0x7f10877d51d4]
+  [bt] (7) /artifact/sut/tvm/build/libtvm.so(tvm::transform::ModulePassNode::operator()(tvm::IRModule, tvm::transform::PassContext const&) const+0x1d4) [0x7f10877d4834]
+  [bt] (6) /artifact/sut/tvm/build/libtvm.so(+0x11de522) [0x7f1088170522]
+  [bt] (5) /artifact/sut/tvm/build/libtvm.so(+0x11dd438) [0x7f108816f438]
+  [bt] (4) /artifact/sut/tvm/build/libtvm.so(tvm::relay::TypeInferencer::Infer(tvm::GlobalVar, tvm::relay::Function)+0x75) [0x7f108816eb25]
+  [bt] (3) /artifact/sut/tvm/build/libtvm.so(tvm::relay::TypeSolver::Solve()+0x45c) [0x7f1087fda3bc]
+  [bt] (2) /artifact/sut/tvm/build/libtvm.so(tvm::runtime::TypedPackedFunc<bool (tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>::AssignTypedLambda<bool (*)(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)>(bool (*)(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&))::{lambda(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*)#1}::operator()(tvm::runtime::TVMArgs const&, tvm::runtime::TVMRetValue*) const+0x557) [0x7f10878301f7]
+  [bt] (1) /artifact/sut/tvm/build/libtvm.so(tvm::relay::WhereRel(tvm::runtime::Array<tvm::Type, void> const&, int, tvm::Attrs const&, tvm::TypeReporter const&)+0x253) [0x7f1087ed0683]
+  [bt] (0) /artifact/sut/tvm/build/libtvm.so(+0xf30768) [0x7f1087ec2768]
+  File "/artifact/sut/tvm/src/relay/analysis/type_solver.cc", line 622
+TVMError: 
+---------------------------------------------------------------
+An internal invariant was violated during the execution of TVM.
+Please read TVM's error reporting guidelines.
+More details can be found here: https://discuss.tvm.ai/t/error-reporting/7793.
+---------------------------------------------------------------
+  Check failed: false == false: [07:48:19] /artifact/sut/tvm/src/relay/op/tensor/transform.cc:1813: 
+---------------------------------------------------------------
+An internal invariant was violated during the execution of TVM.
+Please read TVM's error reporting guidelines.
+More details can be found here: https://discuss.tvm.ai/t/error-reporting/7793.
+---------------------------------------------------------------
+
+  Check failed: x->dtype == y->dtype (float64 vs. float32) : x and y must have the same dtype: float64 vs float32
