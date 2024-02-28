@@ -20,7 +20,7 @@ f_name = './models/muffin/muffin_'+str(args.pickrate)+'.txt'
 if os.path.exists(f_name):
     os.remove(f_name)
 
-with open("./commonops.json", 'r') as load_o:
+with open("./muffinops.json", 'r') as load_o:
     common = json.load(load_o).keys()
 with open("./bc.json", 'r') as load_f:
     full_block_corpus = json.load(load_f)

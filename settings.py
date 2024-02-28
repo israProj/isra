@@ -29,6 +29,7 @@ TEST_ONNX2MLIR = False
 RUN_ONNXRT = True
 global_tensor_num = 0
 TEST_MUFFIN = False
+TEST_NNSMITH = False
 
 MIN_TENSOR_DIM = 1
 MAX_TENSOR_DIM = 5
@@ -90,7 +91,11 @@ if TEST_ONNX2MLIR:
     ops = list(set(ops) - set(o2m_unsupported_ops))
 
 if TEST_MUFFIN:
-    ops = json.load(open('./commonops.json', 'r')).keys()
+    ops = json.load(open('./muffinops.json', 'r')).keys()
+
+if TEST_NNSMITH:
+    MAX_TENSOR_DIM_LEN = 16
+    ops = json.load(open('./nnsmithops.json', 'r')).keys()
 
 ops = sorted(ops)
 

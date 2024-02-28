@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     with open("./bc.json", 'r') as load_f:
         full_block_corpus = json.load(load_f)
-    with open('./commonops.json', 'r') as load_o:
+    with open('./muffinops.json', 'r') as load_o:
         common = json.load(load_o).keys()
     block_corpus = {}
     for op in common:

@@ -15,7 +15,6 @@ def last_is_reshape(node):
             return 'Reshape' in node.name
     return False
 
-
 def get_tensor_dim(edge, graph):
     dims, values = [], []
     in_values = False
@@ -69,8 +68,22 @@ def get_edges_with_dims(model):
     for init in model.graph.initializer:
         inputs.append(init.name)
     edges = {}
-    for i, output in enumerate(model.graph.output):
-        edges[output.name] = []
+    outputs = [output.name for output in model.graph.output]
+    
+    # In nnsmith, some output are not in model.graph.output
+    hidden_outputs = []
+    all_inputs = []
+    all_inputs.extend(inputs)
+    for node in model.graph.node:
+        all_inputs.extend(node.input)
+    for node in model.graph.node:
+        for node_out_i, nodeout in enumerate(node.output):
+            if nodeout not in all_inputs and nodeout not in outputs:
+                hidden_outputs.append(nodeout)
+    outputs.extend(hidden_outputs)
+
+    for name in outputs:
+        edges[name] = []
     for name in inputs:
         edges[name] = []
     dims = {}
@@ -78,8 +91,8 @@ def get_edges_with_dims(model):
     for i in range(len(model.graph.node)):
         end_node = model.graph.node[i]
         for edge in end_node.input:
-            if edge not in dims and not last_is_reshape(end_node) \
-                    and 'concat_outputs' not in end_node.name and 'flatten_node' not in end_node.name:
+            if edge not in dims and 'concat_outputs' not in end_node.name \
+                    and 'flatten_node' not in end_node.name:
                 dims[edge] = get_tensor_dim(edge, model.graph)
             if edge in inputs:
                 edges[edge].append(
@@ -113,8 +126,6 @@ def parse_graph(model, test_set, block_corpus):
     for i, node in enumerate(model.graph.node):
         if 'flatten_node' in node.name or 'concat_outputs' in node.name:
             continue
-        if last_is_reshape(node):
-            continue
         if node.op_type in block_corpus:
             if node.op_type not in test_set:
                 test_set[node.op_type] = {'input': [], 'output': [], 'edgetype': [
@@ -125,8 +136,8 @@ def parse_graph(model, test_set, block_corpus):
                     continue
                 for edge in edges[output]:
                     node1 = inferred_model.graph.node[edge[1]]
-                    if (node1.op_type in block_corpus) and not last_is_reshape(node1) \
-                            and ('flatten_node' not in node1.name) and ('concat_outputs' not in node1.name):
+                    if (node1.op_type in block_corpus) and ('flatten_node' not in node1.name) \
+                                and ('concat_outputs' not in node1.name):
                         if node1.op_type not in test_set[node.op_type]['edgetype']:
                             test_set[node.op_type]['edgetype'].append(
                                 node1.op_type)
@@ -135,8 +146,8 @@ def parse_graph(model, test_set, block_corpus):
                                 continue
                             for edge1 in edges[output1]:
                                 node2 = inferred_model.graph.node[edge1[1]]
-                                if (node2.op_type in block_corpus) and not last_is_reshape(node2) \
-                                        and ('flatten_node' not in node2.name) and ('concat_outputs' not in node2.name):
+                                if (node2.op_type in block_corpus) and ('flatten_node' not in node2.name) \
+                                            and ('concat_outputs' not in node2.name):
                                     if (node1.op_type, node2.op_type) not in test_set[node.op_type]['tripletype']:
                                         test_set[node.op_type]['tripletype'].append(
                                             (node1.op_type, node2.op_type))
@@ -159,22 +170,29 @@ def parse_graph(model, test_set, block_corpus):
     for i, node in enumerate(model.graph.node):
         if 'flatten_node' in node.name or 'concat_outputs' in node.name:
             continue
-        if last_is_reshape(node):
-            continue
         if node.op_type in block_corpus:
             inputlen = INFINITE_INPUT if len(
                 node.input) > INFINITE_INPUT else len(node.input)
+            if inputlen < block_corpus[node.op_type]["in_degree"][0]:
+                inputlen = block_corpus[node.op_type]["in_degree"][0]
             if inputlen not in test_set[node.op_type]['input']:
                 test_set[node.op_type]['input'].append(inputlen)
-            outputlen = MAX_OUTPUT if len(
-                node.output) > MAX_OUTPUT else len(node.output)
+
+            outputlen = len(node.output)
+            for output in set(node.output):
+                for edge in edges[output]:
+                    if edge[1] >= 0 and edge[0] == i and model.graph.node[edge[1]].op_type not in block_corpus:
+                        outputlen -= 1
+            outputlen = MAX_OUTPUT if outputlen > MAX_OUTPUT else outputlen
+            if outputlen < 1:
+                outputlen = 1
             if outputlen not in test_set[node.op_type]['output']:
                 test_set[node.op_type]['output'].append(outputlen)
 
     return edges, test_set, dims, newattrcnt
 
 
-def get_graph_metric(model, edges):
+def get_graph_metric(model, edges, block_corpus):
     cnt_op = 0
     pairs = []
     ops = []
@@ -185,7 +203,7 @@ def get_graph_metric(model, edges):
         fromnode = model.graph.node[i]
         if 'flatten_node' in fromnode.name or 'concat_outputs' in fromnode.name:
             continue
-        if last_is_reshape(fromnode):
+        if fromnode.op_type not in block_corpus.keys():
             continue
         cnt_op += 1
         if fromnode.op_type not in ops:
@@ -194,8 +212,8 @@ def get_graph_metric(model, edges):
             for edge in tensors:
                 if edge[0] == i and edge[1] >= 0:
                     tonode = model.graph.node[edge[1]]
-                    if 'flatten_node' not in tonode.name and 'concat_outputs' not in tonode.name \
-                            and not last_is_reshape(tonode):
+                    if tonode.op_type in block_corpus.keys() and 'flatten_node' not in tonode.name and \
+                                'concat_outputs' not in tonode.name:
                         pair = (fromnode.name, tonode.name)
                         if pair not in pairs:
                             pairs.append(pair)
@@ -207,8 +225,8 @@ def get_graph_metric(model, edges):
                             for edge2 in tensors2:
                                 if edge2[0] == edge[1] and edge2[1] >= 0:
                                     tonode2 = model.graph.node[edge2[1]]
-                                    if 'flatten_node' not in tonode2.name and 'concat_outputs' not in tonode2.name \
-                                            and not last_is_reshape(tonode2):
+                                    if tonode2.op_type in block_corpus.keys() and 'flatten_node' not in tonode2.name and \
+                                            'concat_outputs' not in tonode2.name:
                                         triple = (
                                             fromnode.op_type, tonode.op_type, tonode2.op_type)
                                         if triple not in optriples:
@@ -229,10 +247,27 @@ def get_coverage(modellist, test_set, g_metrics, block_corpus):
                         node.output[node_out_i] = 'model_output_' + \
                             str(model_out_i)
 
+        # In nnsmith, some output nodes are not in model.graph.output
+        all_inputs = []
+        explict_outputs = [out.name for out in model.graph.output]
+        hidden_output = 0
+        changed_output = {}
+        for node in model.graph.node:
+            while '' in node.input:
+                node.input.remove('')
+            all_inputs.extend(node.input)
+
+        for node in model.graph.node:
+            for node_out_i, nodeout in enumerate(node.output):
+                if nodeout not in all_inputs and nodeout not in explict_outputs:
+                    changed_output[nodeout] = 'model_output_' + str(hidden_output+len(model.graph.output))
+                    node.output[node_out_i] = changed_output[nodeout]            
+                    hidden_output += 1
+
         edges, test_set, dims, newattrcnt = parse_graph(
             model, test_set, block_corpus)
         opcnt, paircnt, optypes, opedges, optriples = get_graph_metric(
-            model, edges)
+            model, edges, block_corpus)
 
         g_opcnt = opcnt
         g_type = len(optypes)

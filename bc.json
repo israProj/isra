@@ -20,7 +20,7 @@
 		"in_degree" : [1],
 		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
-	"Ceil"  :{
+	"Ceil" : {
 		"in_degree" : [1],
 		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
@@ -68,7 +68,7 @@
 		"comment" : "default= 0.01"
 	},
 
-	"Sin": {
+	"Sin" : {
 		"in_degree" : [1],
 		"out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
@@ -298,7 +298,7 @@
         "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         , "params" : ["keepdims", "noop_with_empty_axes"]
     },
-    "GlobalAveragePool" :{
+    "GlobalAveragePool" : {
         "in_degree" : [1],
         "out_degree" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },

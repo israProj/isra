@@ -9,13 +9,13 @@ import math
 parser = argparse.ArgumentParser()
 parser.add_argument('--interval', type=int,  help="model_interval", default=250)
 parser.add_argument('--total', type=int,  help="total_models", default=10000)
-parser.add_argument('--type', type=str, help='pickrate/baseline/muffin', required=True)
+parser.add_argument('--type', type=str, help='pickrate/baseline/muffin/nnsmith', required=True)
 parser.add_argument('--minnode', type=int,default=1)
 parser.add_argument('--maxnode', type=int,default=50)
-parser.add_argument('--pickrate', type=str,default='0.95')
+parser.add_argument('--pickrate', type=str,default='0.97')
 args = parser.parse_args()
 
-iter=1 if args.type=='muffin' else 5
+iter=1 if args.type=='muffin' or args.type=='nnsmith' else 5
 pickrates = ['0.5', '0.8', '0.9', '0.95', '0.96', '0.97', '0.98', '0.99']
 op_metric_names = ['OTC', 'IDC', 'ODC', 'SEC', 'DEC', 'SAC']
 graph_metric_names = ['NOO', 'NOT', 'NOP', 'NTR', 'NSA']
@@ -30,12 +30,21 @@ cases = ['dice', 'rand', 'inc']
 if args.type == 'muffin':
     cases = ['dice', 'muffin']
     op_cnts = [{} for c in range(len(cases))]
-    with open('./commonops.json', 'r') as bc_f:
+    with open('./muffinops.json', 'r') as bc_f:
         bc = json.load(bc_f)
         for op_name in bc.keys():
             commonops.append(op_name)
             for c in range(len(cases)):
                 op_cnts[c][op_name] = 0   
+elif args.type == 'nnsmith':
+    cases = ['dice', 'nnsmith']
+    op_cnts = [{} for c in range(len(cases))]
+    with open('./nnsmithops.json', 'r') as bc_f:
+        bc = json.load(bc_f)
+        for op_name in bc.keys():
+            commonops.append(op_name)
+            for c in range(len(cases)):
+                op_cnts[c][op_name] = 0 
 else:
     if args.type == 'pickrate':
         cases = ['0.5', '0.8', '0.9', '0.95', '0.96', '0.97', '0.98', '0.99']
@@ -59,6 +68,8 @@ for j in range(len(cases)):
             
         if args.type == 'muffin':
             path = './models/muffin/'+cases[j]+'_'+args.pickrate+'.txt'
+        elif args.type == 'nnsmith':
+            path = './models/nnsmith/'+cases[j]+'_'+args.pickrate+'.txt'
         elif args.type == 'pickrate':
             path = './models/pickrate/'+cases[j]+'/'+str(i)+'/dice_'+str(args.minnode)+'_'+str(args.maxnode)+\
             '_'+cases[j]+'_e'+str(i)+'.txt'
@@ -165,5 +176,7 @@ if args.type == 'baseline':
     workbook.save('./results/metric_'+str(args.minnode)+'_'+str(args.maxnode)+'_'+args.pickrate+'.xls')
 elif args.type == 'muffin':   
     workbook.save('./results/metric_'+args.pickrate+'_muffin.xls')
+elif args.type == 'nnsmith':
+    workbook.save('./results/metric_'+args.pickrate+'_nnsmith.xls')
 else:
     workbook.save('./results/metric_pickrate.xls')
